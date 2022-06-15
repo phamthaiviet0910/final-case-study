@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container admin-page">
+        <h2>Add New Product</h2>
+        <div class="input-box">
+            <input id="input-name" class="input-product" type="text" placeholder="Name">
+            <input id="input-price" class="input-product" type="text" placeholder="Price">
+            <input id="input-brand" class="input-product" type="text" placeholder="Brand">
+            <input id="input-image-1" class="input-product" type="text" placeholder="Image Url">
+            <input id="input-image-2" class="input-product" type="text" placeholder="Image Url">
+            <button class="btn button-add">Add</button>
+            <button class="btn button-edit hide">Edit</button>
+            <button class="btn button-cancel-edit hide">Cancel</button>
+        </div>
+        <h2>Display All Product</h2>
+        <div class="header-box">
+            <h3>Product List</h3>
+            <h3 class="product-amount">0 products</h3>
+        </div>
+        <ul class="body-box">
+        </ul>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>

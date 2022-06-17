@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css">
@@ -85,14 +85,20 @@
         </div>
     </section>
 
-    <section id="banner-top-collection">
+    <section id="account">
         <div class="container">
-            <img src="../images/banner-collection-1.jpg" alt="">
+            <form target="_blank" action="https://www.w3schools.com/action_page.php" method="post" onsubmit="return submitForm()">
+                <div class="account-title">Register an account</div>
+                <div class="account-container signup">
+                    <input required type="text" name="name" placeholder="Enter your name">
+                    <input required type="tel" name="phone" placeholder="Enter your phone">
+                    <input required type="email" name="email" placeholder="Enter your email">
+                    <input required type="password" name="password" placeholder="Enter your password">
+                    <input type="submit" name="submit" value="Sign up" onclick="setLocal()">
+                    <span>Do you have an account? <a href="/signin.html">Sign in</a></span>
+                </div>
+            </form>
         </div>
-    </section>
-
-    <section id="product-list">
-        <div class="container"></div>
     </section>
 
     <section id="footer">
@@ -151,11 +157,8 @@
             </div>
         </div>
     </section>
-
     <script src="script.js"></script>
     <script src="admin.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-
 </body>
 
 </html>

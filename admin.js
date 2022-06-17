@@ -57,20 +57,37 @@ setStorage()
 //Function render product info to HTML page admin
 function insertProduct() {
     if (bodyBoxProduct != null) {
-        let productList = '<li class="admin-product-item"><div>Order</div><div class="admin-product-name">Name</div><div>Price</div><div>Brand</div><div>Image 1</div><div>Image 2</div><div>Edit</div><div>Delete</div></li>'
-        for (i = 0; i < productData.length; i++) {
-            productList += '<li class="admin-product-item">' + '<div class="order-col">' + (i + 1) + '</div>' +
-                '<div class="admin-product-name">' + productData[i].name + '</div>' +
-                '<div class="admin-product-price">' + productData[i].price + '</div>' +
-
-                '<div class="admin-product-brand">' + productData[i].brand + '</div>' +
-                '<div class="admin-product-image"><img src="' + productData[i].firstImage + '" width = "60px"></div>' +
-                '<div class="admin-product-image"><img src="' + productData[i].secondImage + '" width = "60px"></div>' +
-                '<div class="edit-button">' + '<button class="btn" onclick="editProduct(' + (`${i}`) + ')">Edit</button></div>' +
-                '<div class="delete-button">' + '<button class="btn" onclick="deleteProduct(' + (`${i}`) + ')">Delete</button></div>' + '</li>'
+        if (productData == undefined) {
+            let productList = '<li class="admin-product-item"><div>Order</div><div class="admin-product-name">Name</div><div>Price</div><div>Brand</div><div>Image 1</div><div>Image 2</div><div>Edit</div><div>Delete</div></li>'
+            for (i = 0; i < products.length; i++) {
+                let priceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(products[i].price);
+                productList += '<li class="admin-product-item">' + '<div class="order-col">' + (i + 1) + '</div>' +
+                    '<div class="admin-product-name">' + products[i].name + '</div>' +
+                    '<div class="admin-product-price">' + priceFormat + '</div>' +
+                    '<div class="admin-product-brand">' + products[i].brand + '</div>' +
+                    '<div class="admin-product-image"><img src="' + products[i].firstImage + '" width = "60px"></div>' +
+                    '<div class="admin-product-image"><img src="' + products[i].secondImage + '" width = "60px"></div>' +
+                    '<div class="edit-button">' + '<button class="btn" onclick="editProduct(' + (`${i}`) + ')">Edit</button></div>' +
+                    '<div class="delete-button">' + '<button class="btn" onclick="deleteProduct(' + (`${i}`) + ')">Delete</button></div>' + '</li>'
+            }
+            bodyBoxProduct.innerHTML = productList
+            productAmount.innerHTML = products.length + ' products'
+        } else {
+            let productListStorage = '<li class="admin-product-item"><div>Order</div><div class="admin-product-name">Name</div><div>Price</div><div>Brand</div><div>Image 1</div><div>Image 2</div><div>Edit</div><div>Delete</div></li>'
+            for (i = 0; i < productData.length; i++) {
+                let priceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(productData[i].price);
+                productListStorage += '<li class="admin-product-item">' + '<div class="order-col">' + (i + 1) + '</div>' +
+                    '<div class="admin-product-name">' + productData[i].name + '</div>' +
+                    '<div class="admin-product-price">' + priceFormat + '</div>' +
+                    '<div class="admin-product-brand">' + productData[i].brand + '</div>' +
+                    '<div class="admin-product-image"><img src="' + productData[i].firstImage + '" width = "60px"></div>' +
+                    '<div class="admin-product-image"><img src="' + productData[i].secondImage + '" width = "60px"></div>' +
+                    '<div class="edit-button">' + '<button class="btn" onclick="editProduct(' + (`${i}`) + ')">Edit</button></div>' +
+                    '<div class="delete-button">' + '<button class="btn" onclick="deleteProduct(' + (`${i}`) + ')">Delete</button></div>' + '</li>'
+            }
+            bodyBoxProduct.innerHTML = productListStorage
+            productAmount.innerHTML = productData.length + ' products'
         }
-        bodyBoxProduct.innerHTML = productList
-        productAmount.innerHTML = productData.length + ' products'
     }
 }
 
@@ -81,17 +98,33 @@ insertProduct()
 //Function render product info to HTML page collection
 function insertProductCollection() {
     if (collectionItem != null) {
-        let productListCollection = ''
-        for (i = 0; i < productData.length; i++) {
-            productListCollection += '<div class="product-item">' +
-                '<div class="product-image"><a href="${products[i].firstImage}" data-fancybox="gallery-1"><img src="' + productData[i].firstImage + '" alt=""></a><a href="' + productData[i].secondImage + '" data-fancybox="gallery-1"><img src="' + productData[i].secondImage + '" alt=""></a></div>' +
-                '<div class="product-price"><span>Price: </span><div class="original-price">' + productData[i].price + '</div></div>' +
-                '<div class="product-brand">' + productData[i].brand + '</div>' +
-                '<div class="product-name"><a href="">' + productData[i].name + '</a></div>' +
-                '<div class="add-to-cart"><input type="number" id="quantity" name="quantity" min="1" value="1"><button>ADD TO CART</button></div>' +
-                '</div>'
+        if (productData == undefined) {
+            let productListCollection = ''
+            for (i = 0; i < products.length; i++) {
+                let priceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(products[i].price);
+                productListCollection += '<div class="product-item">' +
+                    '<div class="product-image"><a href="' + products[i].firstImage + '" data-fancybox="gallery-1"><img src="' + products[i].firstImage + '" alt=""></a><a href="' + products[i].secondImage + '" data-fancybox="gallery-1"><img src="' + products[i].secondImage + '" alt=""></a></div>' +
+                    '<div class="product-price"><span>Price: </span><div class="original-price">' + priceFormat + '</div></div>' +
+                    '<div class="product-brand">' + products[i].brand + '</div>' +
+                    '<div class="product-name"><a href="">' + products[i].name + '</a></div>' +
+                    '<div class="add-to-cart"><input type="number" id="quantity" name="quantity" min="1" value="1"><button <button onclick="addToCart(' + (`${i}`) + ')"                                                                                                                                                                                                                                                                                                            >ADD TO CART</button></div>' +
+                    '</div>'
+            }
+            collectionItem.innerHTML = productListCollection
+        } else {
+            let productListCollectionStorage = ''
+            for (i = 0; i < productData.length; i++) {
+                let priceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(productData[i].price);
+                productListCollectionStorage += '<div class="product-item">' +
+                    '<div class="product-image"><a href="' + productData[i].firstImage + '" data-fancybox="gallery-1"><img src="' + productData[i].firstImage + '" alt=""></a><a href="' + productData[i].secondImage + '" data-fancybox="gallery-1"><img src="' + productData[i].secondImage + '" alt=""></a></div>' +
+                    '<div class="product-price"><span>Price: </span><div class="original-price">' + priceFormat + '</div></div>' +
+                    '<div class="product-brand">' + productData[i].brand + '</div>' +
+                    '<div class="product-name"><a href="">' + productData[i].name + '</a></div>' +
+                    '<div class="add-to-cart"><input type="number" id="quantity" name="quantity" min="1" value="1"><button onclick="addToCart(' + (`${i}`) + ')">ADD TO CART</button></div>' +
+                    '</div>'
+            }
+            collectionItem.innerHTML = productListCollectionStorage
         }
-        collectionItem.innerHTML = productListCollection
     }
 }
 
@@ -119,14 +152,26 @@ addProduct()
 
 //Function delete product
 function deleteProduct(item) {
-    if (confirm('Do you want delete "' + productData[item].name + '" ?')) {
-        alert('Delete "' + productData[item].name + '" successfully!')
-        productData.splice(item, 1)
-        setStorage()
-        insertProduct()
-        insertProductCollection()
+    if (productData == undefined) {
+        if (confirm('Do you want delete "' + products[item].name + '" ?')) {
+            alert('Delete "' + products[item].name + '" successfully!')
+            products.splice(item, 1)
+            setStorage()
+            insertProduct()
+            insertProductCollection()
+        } else {
+            alert('You cancelled')
+        }
     } else {
-        alert('You cancelled')
+        if (confirm('Do you want delete "' + productData[item].name + '" ?')) {
+            alert('Delete "' + productData[item].name + '" successfully!')
+            productData.splice(item, 1)
+            setStorage()
+            insertProduct()
+            insertProductCollection()
+        } else {
+            alert('You cancelled')
+        }
     }
 }
 
@@ -148,21 +193,37 @@ function addHide() {
 function editProduct(item) {
     inputName.focus()
     removeHide()
-    inputName.value = productData[item].name
-    inputPrice.value = productData[item].price
-    inputBrand.value = productData[item].brand
-    inputImage1.value = productData[item].firstImage
-    inputImage2.value = productData[item].secondImage
+    if (productData == undefined) {
+        inputName.value = products[item].name
+        inputPrice.value = products[item].price
+        inputBrand.value = products[item].brand
+        inputImage1.value = products[item].firstImage
+        inputImage2.value = products[item].secondImage
+    } else {
+        inputName.value = productData[item].name
+        inputPrice.value = productData[item].price
+        inputBrand.value = productData[item].brand
+        inputImage1.value = productData[item].firstImage
+        inputImage2.value = productData[item].secondImage
+    }
     buttonEdit.setAttribute('onclick', 'editProductConfirm(' + `${item}` + ')');
 }
 
 //Function re-render product info after edit
 function editProductConfirm(item) {
-    productData[item].name = inputName.value
-    productData[item].price = inputPrice.value
-    productData[item].brand = inputBrand.value
-    productData[item].firstImage = inputImage1.value
-    productData[item].secondImage = inputImage2.value
+    if (productData == undefined) {
+        products[item].name = inputName.value
+        products[item].price = inputPrice.value
+        products[item].brand = inputBrand.value
+        products[item].firstImage = inputImage1.value
+        products[item].secondImage = inputImage2.value
+    } else {
+        productData[item].name = inputName.value
+        productData[item].price = inputPrice.value
+        productData[item].brand = inputBrand.value
+        productData[item].firstImage = inputImage1.value
+        productData[item].secondImage = inputImage2.value
+    }
     setStorage()
     insertProduct()
     insertProductCollection()

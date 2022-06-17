@@ -29,8 +29,27 @@
         <div class="container">
             <div class="topbar-left"></div>
             <div class="topbar-right">
-                <a href="">My Account</a>
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/signin.html">My Account</a>
+                <div class="cart-mini-button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="cart-count">0</div>
+                </div>
+                <div class="cart-mini">
+                    <div class="cart-mini-header">
+                        <div class="cart-mini-header-left"><i class="fa-solid fa-check"></i> My Cart</div>
+                        <div class="cart-mini-header-right"><i class="fa-solid fa-xmark"></i></div>
+                    </div>
+                    <div class="cart-mini-body"></div>
+                    <div class="cart-mini-total">
+                        <span>Total price: </span>
+                        <div class="total-price">0</div>
+                    </div>
+                    <div class="cart-mini-footer">
+                        <button href="" class="view-cart">View my cart</button>
+                        <button href="" class="to-checkout">Check out</button>
+                        <a href="">Continue shopping</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -74,7 +93,37 @@
                     <a href="">
                         <img src="../images/club-kit.jpg" alt="">
                     </a>
-                    <span>Club Kit</span>
+                    <span>Premier League</span>
+                </div>
+                <div class="collection-icon-item">
+                    <a href="">
+                        <img src="../images/laliga.jpg" alt="">
+                    </a>
+                    <span>La Liga</span>
+                </div>
+                <div class="collection-icon-item">
+                    <a href="">
+                        <img src="../images/bulesliga.jpg" alt="">
+                    </a>
+                    <span>Bundesliga</span>
+                </div>
+                <div class="collection-icon-item">
+                    <a href="">
+                        <img src="../images/legue1.jpg" alt="">
+                    </a>
+                    <span>Ligue 1</span>
+                </div>
+                <div class="collection-icon-item">
+                    <a href="">
+                        <img src="../images/seria.jpg" alt="">
+                    </a>
+                    <span>Serie A</span>
+                </div>
+                <div class="collection-icon-item">
+                    <a href="">
+                        <img src="../images/RoW.jpg" alt="">
+                    </a>
+                    <span>Rest of World</span>
                 </div>
                 <div class="collection-icon-item">
                     <a href="">
@@ -101,7 +150,10 @@
     <section id="slide-mid">
         <div class="container">
             <h2>NOW TRENDING</h2>
-            <img src="../images/slide-mid-1.jpg" alt="">
+            <div class="owl-carousel">
+                <img src="../images/slide-mid-2.jpg" alt="">
+                <img src="../images/slide-mid-1.jpg" alt="">
+            </div>
         </div>
     </section>
 

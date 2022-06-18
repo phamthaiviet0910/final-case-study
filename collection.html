@@ -24,12 +24,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 </head>
 
-<body>
+<body onload="checkAccount()">
     <section id="topbar">
         <div class="container">
             <div class="topbar-left"></div>
             <div class="topbar-right">
-                <a href="/signin.html">My Account</a>
+                <div class="account-header">
+                    <a href="/signin.html">My Account</a>
+                </div>
                 <div class="cart-mini-button">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <div class="cart-count">0</div>
@@ -47,7 +49,7 @@
                     <div class="cart-mini-footer">
                         <button href="" class="view-cart">View my cart</button>
                         <button href="" class="to-checkout">Check out</button>
-                        <a href="">Continue shopping</a>
+                        <a href="/collection.html">Continue shopping</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +75,7 @@
     <section id="menu">
         <div class="container">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li><a href="">Club Kit</a></li>
                 <li><a href="">International Kit</a></li>
                 <li><a href="">Blogs</a></li>

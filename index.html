@@ -24,12 +24,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 </head>
 
-<body>
+<body onload="checkAccount()">
     <section id="topbar">
         <div class="container">
             <div class="topbar-left"></div>
             <div class="topbar-right">
-                <a href="/signin.html">My Account</a>
+                <div class="account-header">
+                    <a href="/signin.html">My Account</a>
+                </div>
                 <div class="cart-mini-button">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <div class="cart-count">0</div>
@@ -47,7 +49,7 @@
                     <div class="cart-mini-footer">
                         <button href="" class="view-cart">View my cart</button>
                         <button href="" class="to-checkout">Check out</button>
-                        <a href="">Continue shopping</a>
+                        <a href="/collection.html">Continue shopping</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +75,7 @@
     <section id="menu">
         <div class="container">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li><a href="">Club Kit</a></li>
                 <li><a href="">International Kit</a></li>
                 <li><a href="">Blogs</a></li>
@@ -90,43 +92,43 @@
             <p>Shop Your Favourite League</p>
             <div class="collection-icon-list">
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/club-kit.jpg" alt="">
                     </a>
                     <span>Premier League</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/laliga.jpg" alt="">
                     </a>
                     <span>La Liga</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/bulesliga.jpg" alt="">
                     </a>
                     <span>Bundesliga</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/legue1.jpg" alt="">
                     </a>
                     <span>Ligue 1</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/seria.jpg" alt="">
                     </a>
                     <span>Serie A</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/RoW.jpg" alt="">
                     </a>
                     <span>Rest of World</span>
                 </div>
                 <div class="collection-icon-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/national-kit.jpg" alt="">
                     </a>
                     <span>International</span>
@@ -138,11 +140,21 @@
     <section id="slide-top">
         <div class="container">
             <div class="owl-carousel">
-                <img src="../images/slide-top-1.jpg" alt="">
-                <img src="../images/slide-top-2.jpg" alt="">
-                <img src="../images/slide-top-3.jpg" alt="">
-                <img src="../images/slide-top-4.jpg" alt="">
-                <img src="../images/slide-top-5.jpg" alt="">
+                <a href="/collection.html">
+                    <img src="../images/slide-top-1.jpg" alt="">
+                </a>
+                <a href="/collection.html">
+                    <img src="../images/slide-top-2.jpg" alt="">
+                </a>
+                <a href="/collection.html">
+                    <img src="../images/slide-top-3.jpg" alt="">
+                </a>
+                <a href="/collection.html">
+                    <img src="../images/slide-top-4.jpg" alt="">
+                </a>
+                <a href="/collection.html">
+                    <img src="../images/slide-top-5.jpg" alt="">
+                </a>
             </div>
         </div>
     </section>
@@ -151,8 +163,12 @@
         <div class="container">
             <h2>NOW TRENDING</h2>
             <div class="owl-carousel">
-                <img src="../images/slide-mid-2.jpg" alt="">
-                <img src="../images/slide-mid-1.jpg" alt="">
+                <a href="/collection.html">
+                    <img src="../images/slide-mid-2.jpg" alt="">
+                </a>
+                <a href="/collection.html">
+                    <img src="../images/slide-mid-1.jpg" alt="">
+                </a>
             </div>
         </div>
     </section>
@@ -162,7 +178,7 @@
             <h2>FEATURED PRODUCTS</h2>
             <div class="collection-banner-list">
                 <div class="collection-banner-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/banner-mid-1.png" alt="">
                         <div class="collection-banner-title">
                             <span>HOTTEST DROPS</span>
@@ -172,7 +188,7 @@
                     </a>
                 </div>
                 <div class="collection-banner-item">
-                    <a href="">
+                    <a href="/collection.html">
                         <img src="../images/banner-mid-2.png" alt="">
                         <div class="collection-banner-title">
                             <span>22/23 SEASON</span>
@@ -188,23 +204,35 @@
     <section id="gallery">
         <div class="container">
             <div class="gallery-item">
-                <a href="../images/gallery-1.jpg" data-fancybox="gallery">
+                <a href="https://www.youtube.com/watch?v=OUKGsb8CpF8" data-fancybox="gallery">
                     <img src="../images/gallery-1.jpg" alt="">
+                    <div class="overlay">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="../images/gallery-2.jpg" data-fancybox="gallery">
+                <a href="https://www.youtube.com/watch?v=77ag5co-TTA" data-fancybox="gallery">
                     <img src="../images/gallery-2.jpg" alt="">
+                    <div class="overlay">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="../images/gallery-3.jpg" data-fancybox="gallery">
+                <a href="https://www.youtube.com/watch?v=Ibn5STF9gjM" data-fancybox="gallery">
                     <img src="../images/gallery-3.jpg" alt="">
+                    <div class="overlay">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
                 </a>
             </div>
             <div class="gallery-item">
-                <a href="../images/gallery-4.jpg" data-fancybox="gallery">
+                <a href="https://www.youtube.com/watch?v=Q8E4NItJCfk" data-fancybox="gallery">
                     <img src="../images/gallery-4.jpg" alt="">
+                    <div class="overlay">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
                 </a>
             </div>
         </div>
@@ -254,16 +282,16 @@
             <div class="footer-item social">
                 <h3>Follow us</h3>
                 <div class="social-icon">
-                    <a href="">
+                    <a target="_blank" href="https://www.facebook.com/">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="">
+                    <a target="_blank" href="https://twitter.com/">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
-                    <a href="">
+                    <a target="_blank" href="https://www.instagram.com/">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="">
+                    <a target="_blank" href="https://www.youtube.com/">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>

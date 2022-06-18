@@ -24,12 +24,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 </head>
 
-<body>
+<body onload="checkAccount()">
     <section id="topbar">
         <div class="container">
             <div class="topbar-left"></div>
             <div class="topbar-right">
-                <a href="">My Account</a>
+                <div class="account-header">
+                    <a href="/signin.html">My Account</a>
+                </div>
                 <div class="cart-mini-button">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <div class="cart-count">0</div>
@@ -47,7 +49,7 @@
                     <div class="cart-mini-footer">
                         <button href="" class="view-cart">View my cart</button>
                         <button href="" class="to-checkout">Check out</button>
-                        <a href="">Continue shopping</a>
+                        <a href="/collection.html">Continue shopping</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +75,7 @@
     <section id="menu">
         <div class="container">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li><a href="">Club Kit</a></li>
                 <li><a href="">International Kit</a></li>
                 <li><a href="">Blogs</a></li>
@@ -87,13 +89,16 @@
 
     <section id="account">
         <div class="container">
-            <div class="account-title">Account login</div>
-            <div class="account-container">
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Enter your password">
-                <input type="submit" value="Sign in">
-                <span>Do not have an account? <a href="/signup.html">Sign up</a></span>
-            </div>
+            <form target="_blank" action="signin.html" method="post" onsubmit="submitLogin(event)">
+                <div class="account-title">Account login</div>
+                <div class="account-container signin">
+                    <span class="hide error-noti">* Invalid email or password.</span>
+                    <input autocomplete="off" required name="email" type="email" placeholder="Enter your email">
+                    <input autocomplete="off" required name="password" type="password" placeholder="Enter your password">
+                    <input type="submit" value="Sign in">
+                    <span>Do not have an account? <a href="/signup.html">Sign up</a></span>
+                </div>
+            </form>
         </div>
     </section>
 

@@ -1,0 +1,96 @@
+@media (max-width: 768px) {
+    .hidden-sm {
+        display: none;
+    }
+    body h2 {
+        font-size: 30px;
+    }
+    section#header {
+        padding: 20px 0 0;
+    }
+    section#header .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0;
+    }
+    section#header .container>div {
+        justify-content: center;
+        width: 100%;
+    }
+    section#header img {
+        max-width: 80px;
+    }
+    section#header .header-right {
+        justify-content: space-evenly !important;
+        padding: 10px 0;
+        background: #eaeaea;
+    }
+    section#header .header-right img {
+        max-width: 50px !important;
+    }
+    .collection-icon-list {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    section#collection-icon p {
+        font-size: 18px;
+    }
+    .collection-icon-item span {
+        font-size: 14px;
+    }
+    section#slide-mid h2,
+    section#collection-banner h2 {
+        margin: 20px 0;
+    }
+    .collection-banner-list {
+        flex-direction: column;
+    }
+    .collection-banner-list>div {
+        width: 100%;
+    }
+    .collection-banner-item h3 {
+        font-size: 24px;
+    }
+    .collection-banner-item span {
+        font-size: 16px;
+    }
+    .collection-banner-title img {
+        max-width: 24px;
+    }
+    section#gallery {
+        padding: 30px 0;
+    }
+    section#gallery .container {
+        --gap-10: 10px;
+        gap: var(--gap-10);
+        flex-wrap: wrap;
+        padding: 0 15px;
+    }
+    section#gallery .container>div {
+        width: calc(50% - var(--gap-10) / 2);
+    }
+    section#about-us {
+        padding-bottom: 20px;
+    }
+    section#about-us .container {
+        padding: 0 15px;
+    }
+    section#about-us h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+    section#footer {
+        padding-bottom: 25px;
+    }
+    section#footer .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 40px 15px;
+    }
+    section#footer-bottom .container {
+        flex-direction: column;
+        padding: 0 15px;
+        gap: 10px;
+    }
+}

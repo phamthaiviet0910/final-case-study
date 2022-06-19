@@ -151,7 +151,7 @@ addProduct();
 //Function delete product
 function deleteProduct(item) {
     if (productData == undefined) {
-        if (confirm('Do you want delete "' + products[item].name + '" ?')) {
+        if (confirm('Do you want to delete "' + products[item].name + '" ?')) {
             alert('Delete "' + products[item].name + '" successfully!');
             products.splice(item, 1);
             setStorage();
@@ -161,7 +161,7 @@ function deleteProduct(item) {
             alert('You cancelled');
         }
     } else {
-        if (confirm('Do you want delete "' + productData[item].name + '" ?')) {
+        if (confirm('Do you want to delete "' + productData[item].name + '" ?')) {
             alert('Delete "' + productData[item].name + '" successfully!');
             productData.splice(item, 1);
             setStorage();

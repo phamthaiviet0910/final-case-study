@@ -159,6 +159,118 @@ function addToCart(index) {
     localStorage.setItem("cart data", JSON.stringify(cartData));
 }
 
+//Display cart page
+let cartBox = document.querySelector('.cart-box')
+    // let totalPriceCartPage = document.querySelector('.total-price-final')
+
+function displayCartPage() {
+    data = '<div class="cart-items">';
+    let totalPriceCount = 0;
+
+    for (i = 0; i < cartData.length; i++) {
+        let priceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(cartData[i].priceItem * cartData[i].quantityItem);
+        let priceFormatUnit = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(cartData[i].priceItem);
+        data += `<div class="cart-item">
+            <div class="cart-image-item">
+                <img src="${cartData[i].imageItem}" alt="">
+            </div>
+            <div class="cart-name-item">
+            ${cartData[i].nameItem}
+            </div>
+            <div class="cart-quantity-item">
+                <button onclick="minus(${i})"><i class="fa-solid fa-minus"></i></button>
+                <input id="input-quantity-${i}" onchange="changeQuantity(${i})" type="number" min="1" value="${cartData[i].quantityItem}">
+                <button onclick="plus(${i})"><i class="fa-solid fa-plus"></i></button>       
+            </div>
+            <div class="cart-price-item">
+                <div class="cart-price-unit-item">
+                    ${priceFormatUnit}
+                </div>
+                <div class="cart-price-total-item">
+                    total: <span> ${priceFormat}</span>
+                </div>
+            </div>
+            <div class="cart-delete-item">
+                <button onclick="deleteCartItem(${i})"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>`;
+
+        totalPriceCount += (cartData[i].priceItem * cartData[i].quantityItem); //Calculate total price in cart
+
+    }
+
+    totalPriceFormat = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'GBP' }).format(totalPriceCount);
+
+    data += `</div><div class="cart-total-price">
+        <div class="cart-total-price-box">
+            <div class="cart-total">
+                <span>Cart Total</span>
+                <span class="total-price-final">${totalPriceFormat}</span>
+            </div>
+            <button class="check-out">Check Out</button>
+            <button class="continue-shopping"><a  href="/collection.html">Continue Shopping</a></button>
+        </div>
+    </div>`;
+
+    if (cartBox != undefined) {
+        if (cartData.length > 0) {
+            cartBox.innerHTML = data
+        } else {
+            cartBox.innerHTML = '<div class="empty-cart"><div class="empty-cart-noti">Your Shopping Cart Is Empty</div><button><a href="/collection.html">Continue Shopping</a></button></div>'
+        }
+    }
+
+};
+
+displayCartPage();
+
+//Function change value quantity of input
+function plus(index) {
+    let inputQuantity = document.querySelector(`#input-quantity-${index}`);
+    inputQuantity.value++;
+    cartData[index].quantityItem = +inputQuantity.value;
+    displayCartPage();
+    displayCartData();
+    localStorage.setItem("cart data", JSON.stringify(cartData));
+}
+
+function minus(index) {
+    let inputQuantity = document.querySelector(`#input-quantity-${index}`);
+    if (inputQuantity.value > 1) {
+        inputQuantity.value--;
+    }
+    cartData[index].quantityItem = +inputQuantity.value;
+    displayCartPage();
+    displayCartData();
+    localStorage.setItem("cart data", JSON.stringify(cartData));
+}
+
+function changeQuantity(index) {
+    let inputQuantity = document.querySelector(`#input-quantity-${index}`);
+    if (inputQuantity.value > 0) {
+        cartData[index].quantityItem = +inputQuantity.value;
+    } else {
+        alert('Minimum quantity should be 1');
+        cartData[index].quantityItem = 1;
+    }
+    displayCartPage();
+    displayCartData();
+    localStorage.setItem("cart data", JSON.stringify(cartData));
+}
+
+//Delete item on cart page
+function deleteCartItem(index) {
+    if (confirm('Do you want to delete "' + cartData[index].nameItem + '" from your cart?')) {
+        alert('Delete "' + cartData[index].nameItem + '" from your cart successfully!');
+        cartData.splice(index, 1);
+        displayCartPage();
+        displayCartData();
+        localStorage.setItem("cart data", JSON.stringify(cartData));
+    } else {
+        alert('You cancelled');
+    }
+};
+
 //Declare variable for account data
 let accountContainer = document.querySelector('#account .container');
 let userName = document.querySelector('.signup input[name="name"]');
@@ -176,7 +288,7 @@ function submitForm() {
     phone.value = '';
     email.value = '';
     password.value = '';
-}
+};
 
 //Function set account data to local
 class Account {
@@ -190,9 +302,9 @@ class Account {
         this.phone = phone;
         this.email = email;
         this.password = password;
-    }
+    };
 
-}
+};
 
 let accountData = JSON.parse(localStorage.getItem("account data") || "[]");
 
@@ -200,7 +312,7 @@ function setLocal() {
     let newUser = new Account(userName.value, phone.value, email.value, password.value);
     accountData.push(newUser);
     localStorage.setItem("account data", JSON.stringify(accountData));
-}
+};
 
 //Check sign in account
 let accountLogin = JSON.parse(localStorage.getItem("account login") || "[]");
@@ -224,10 +336,10 @@ function submitLogin(event) {
         event.preventDefault()
     }
 
-}
+};
 
 //Check sign in account or not
-let accountHeader = document.querySelector('.account-header')
+let accountHeader = document.querySelector('.account-header');
 
 function checkAccount() {
     if (accountLogin.length != 0) {
@@ -238,10 +350,10 @@ function checkAccount() {
             accountContainer.innerHTML = '<div class="congratulation-noti"><p>Congratulations, you have successfully logged in!</p><p>Click<span> <a href="/collection.html">here</a>  </span>to continue shopping.</p></div>';
         }
     }
-}
+};
 
 //Function log out account
 function logout() {
     localStorage.removeItem("account login")
     localStorage.removeItem("cart data")
-}
+};

@@ -28,7 +28,11 @@
 <body onload="checkAccount()">
     <section id="topbar">
         <div class="container">
-            <div class="topbar-left"></div>
+            <div class="topbar-left">
+                <button class="nav-menu-mb hidden-lg">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
             <div class="topbar-right">
                 <div class="account-header">
                     <a href="/signin.html">My Account</a>
@@ -37,22 +41,38 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                     <div class="cart-count">0</div>
                 </div>
-                <div class="cart-mini">
-                    <div class="cart-mini-header">
-                        <div class="cart-mini-header-left"><i class="fa-solid fa-check"></i> My Cart</div>
-                        <div class="cart-mini-header-right"><i class="fa-solid fa-xmark"></i></div>
-                    </div>
-                    <div class="cart-mini-body"></div>
-                    <div class="cart-mini-total">
-                        <span>Total price: </span>
-                        <div class="total-price">0</div>
-                    </div>
-                    <div class="cart-mini-footer">
-                        <button class="view-cart"><a href="/cart.html">View my cart</a></button>
-                        <button class="to-checkout">Check out</button>
-                        <a href="/collection.html">Continue shopping</a>
-                    </div>
+            </div>
+            <div class="cart-mini">
+                <div class="cart-mini-header">
+                    <div class="cart-mini-header-left"><i class="fa-solid fa-check"></i> My Cart</div>
+                    <div class="cart-mini-header-right"><i class="fa-solid fa-xmark"></i></div>
                 </div>
+                <div class="cart-mini-body"></div>
+                <div class="cart-mini-total">
+                    <span>Total price: </span>
+                    <div class="total-price">0</div>
+                </div>
+                <div class="cart-mini-footer">
+                    <button class="view-cart"><a href="/cart.html">View my cart</a></button>
+                    <button class="to-checkout">Check out</button>
+                    <a href="/collection.html">Continue shopping</a>
+                </div>
+            </div>
+            <div class="menu-mobile hidden-lg">
+                <ul>
+                    <li><a href="/collection.html">Men</a></li>
+                    <li><a href="/collection.html">Women</a></li>
+                    <li><a href="/collection.html">Kids</a></li>
+                    <li><a href="/collection.html">Premier League</a></li>
+                    <li><a href="/collection.html">La Liga</a></li>
+                    <li><a href="/collection.html">Seria A</a></li>
+                    <li><a href="/collection.html">Bundesliga</a></li>
+                    <li><a href="/collection.html">Ligue 1</a></li>
+                    <li><a href="/collection.html">Rest of the world</a></li>
+                    <li><a href="/collection.html">International</a></li>
+                    <li><a href="/collection.html">Training</a></li>
+                    <li><a href="/collection.html">Outlet</a></li>
+                </ul>
             </div>
         </div>
     </section>
@@ -73,7 +93,7 @@
         </div>
     </section>
 
-    <section id="menu">
+    <section id="menu" class="hidden-sm">
         <div class="container">
             <ul>
                 <li><a href="/collection.html">Men</a></li>
@@ -94,7 +114,13 @@
 
     <section id="cart-page">
         <div class="container">
-            <h3>Your Items</h3>
+            <div class="cart-page-title">
+                <h3>Your Items</h3>
+                <div class="scroll-to-right visible-xs">
+                    <span>Scroll right</span>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+            </div>
             <div class="cart-box"></div>
         </div>
     </section>

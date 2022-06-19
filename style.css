@@ -38,14 +38,12 @@ body h2 {
     margin: 0 auto;
 }
 
-@media(max-width: 1440px) {
-    .container {
-        max-width: 1200px;
-    }
-}
-
 .hide {
     display: none !important;
+}
+
+.visible-xs {
+    display: none;
 }
 
 .admin-page h2 {
@@ -164,10 +162,15 @@ section#topbar .container {
     display: flex;
     justify-content: space-between;
     border-bottom: var(--border);
+    position: relative;
 }
 
-section#topbar .container>div {
-    width: 50%;
+section#topbar .container .topbar-right {
+    width: 80%;
+}
+
+section#topbar .container .topbar-left {
+    width: 20%;
 }
 
 .topbar-right {
@@ -862,8 +865,11 @@ section#cart-page .container {
     padding: 60px 30px;
 }
 
-section#cart-page h3 {
+section#cart-page .cart-page-title {
     margin-bottom: 15px;
+}
+
+section#cart-page h3 {
     font-size: 20px;
 }
 

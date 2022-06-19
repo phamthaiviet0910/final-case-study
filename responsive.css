@@ -1,4 +1,16 @@
-@media (max-width: 768px) {
+@media(min-width: 1200px) {
+    .hidden-lg {
+        display: none;
+    }
+}
+
+@media(max-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 1024px) {
     .hidden-sm {
         display: none;
     }
@@ -43,12 +55,6 @@
     section#collection-banner h2 {
         margin: 20px 0;
     }
-    .collection-banner-list {
-        flex-direction: column;
-    }
-    .collection-banner-list>div {
-        width: 100%;
-    }
     .collection-banner-item h3 {
         font-size: 24px;
     }
@@ -57,6 +63,12 @@
     }
     .collection-banner-title img {
         max-width: 24px;
+    }
+    section#collection-banner .container {
+        padding: 0 15px;
+    }
+    .collection-banner-list {
+        gap: 10px;
     }
     section#gallery {
         padding: 30px 0;
@@ -84,13 +96,156 @@
         padding-bottom: 25px;
     }
     section#footer .container {
-        flex-direction: column;
-        gap: 15px;
+        --gap-15: 15px;
+        flex-wrap: wrap;
+        gap: var(--gap-15);
         padding: 40px 15px;
+    }
+    section#footer .container .footer-item {
+        width: calc(50% - var(--gap-15)/2);
     }
     section#footer-bottom .container {
         flex-direction: column;
         padding: 0 15px;
         gap: 10px;
+    }
+    section#banner-top-collection {
+        padding: 0 0 40px;
+    }
+    section#product-list .container {
+        --gap-15: 15px;
+        gap: var(--gap-15);
+        padding: 0 15px;
+    }
+    section#product-list .container .product-item {
+        width: calc(100% / 3 - (var(--gap-15)*2) / 3);
+    }
+    section#cart-page .cart-total-price {
+        padding-left: 20px;
+    }
+    .topbar-left {
+        display: flex;
+        align-items: center;
+    }
+    .topbar-left button.nav-menu-mb {
+        padding-left: 15px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .topbar-left button.nav-menu-mb i {
+        font-size: 20px;
+    }
+    .menu-mobile {
+        position: absolute;
+        width: 368px;
+        top: 100%;
+        background: #fff;
+        border: var(--border);
+        padding: 25px 35px;
+        z-index: 9;
+        transform: translateY(-115%);
+        transition: 0.5s;
+    }
+    .menu-mobile.active {
+        transform: translateY(0);
+    }
+    .menu-mobile ul {
+        list-style-type: none;
+    }
+    .menu-mobile ul li {
+        padding: 5px 0;
+        border-bottom: 1px solid #b5b5b5;
+    }
+    .menu-mobile ul li:last-child {
+        border-bottom: none;
+    }
+}
+
+@media(max-width: 768px) {
+    section#product-list .container {
+        --gap-15: 15px;
+        gap: var(--gap-15);
+        padding: 0 15px;
+    }
+    section#product-list .container .product-item {
+        width: calc(50% - var(--gap-15)/2);
+    }
+    section#cart-page .cart-box {
+        flex-direction: column;
+        gap: 60px;
+    }
+    section#cart-page .cart-items {
+        width: 100%;
+    }
+    section#cart-page .cart-total-price {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .visible-xs {
+        display: block !important;
+    }
+    section#collection-banner .container {
+        padding: 0;
+    }
+    .collection-banner-list {
+        flex-direction: column;
+    }
+    .collection-banner-list>div {
+        width: 100%;
+    }
+    section#footer .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 40px 15px;
+    }
+    section#product-list .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    section#product-list .container .product-item {
+        width: 100%;
+    }
+    .cart-mini {
+        width: 100%;
+    }
+    section#cart-page .cart-items .cart-item {
+        width: 180%;
+    }
+    section#cart-page .cart-items {
+        overflow-x: scroll;
+    }
+    section#cart-page .cart-page-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    section#cart-page .cart-page-title i {
+        font-size: 18px;
+    }
+    .scroll-to-right {
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
+    }
+    section#account .container {
+        padding: 0 15px;
+    }
+    .menu-mobile {
+        width: 100%;
+    }
+    section#topbar .container .topbar-right .account-header {
+        display: flex;
+        gap: 5px;
+    }
+    section#topbar .container .topbar-right .account-header span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        width: 100px;
     }
 }

@@ -160,10 +160,8 @@ function addToCart(index) {
 }
 
 //Display cart page
-let cartBox = document.querySelector('.cart-box')
-    // let totalPriceCartPage = document.querySelector('.total-price-final')
-
 function displayCartPage() {
+    let cartBox = document.querySelector('.cart-box');
     data = '<div class="cart-items">';
     let totalPriceCount = 0;
 
@@ -344,7 +342,7 @@ let accountHeader = document.querySelector('.account-header');
 function checkAccount() {
     if (accountLogin.length != 0) {
         for (i = 0; i < accountLogin.length; i++) {
-            accountHeader.innerHTML = `Hi, ${accountLogin[i]} - <a onclick = "logout()" href="/index.html">Log out</a>`
+            accountHeader.innerHTML = `Hi, <span>${accountLogin[i]}</span> - <a onclick = "logout()" href="/index.html">Log out</a>`
         }
         if (accountContainer) {
             accountContainer.innerHTML = '<div class="congratulation-noti"><p>Congratulations, you have successfully logged in!</p><p>Click<span> <a href="/collection.html">here</a>  </span>to continue shopping.</p></div>';
@@ -357,3 +355,15 @@ function logout() {
     localStorage.removeItem("account login")
     localStorage.removeItem("cart data")
 };
+
+//Function open menu mobile
+function openMenuMobile() {
+    let buttonMenuMobile = document.querySelector('.nav-menu-mb');
+    let menuMobile = document.querySelector('.menu-mobile');
+
+    buttonMenuMobile.addEventListener('click', function() {
+        menuMobile.classList.toggle('active')
+    })
+}
+
+openMenuMobile()

@@ -26,7 +26,6 @@ class Product {
     }
 }
 
-
 let productsStorage = JSON.parse(localStorage.getItem("products") || "[]");
 let productData = productsStorage[productsStorage.length - 1];
 

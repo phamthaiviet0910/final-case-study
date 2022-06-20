@@ -372,53 +372,55 @@ openMenuMobile()
 function sortProduct() {
     let unSort = productData.slice();
     let sortBy = document.querySelector('#sort-by');
-    sortBy.addEventListener('change', function() {
-        let optionValue = sortBy.value;
-        if (optionValue == 'a to z') {
-            productData.sort(function(a, b) {
-                const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-                if (nameA < nameB) {
-                    return -1;
+    if (sortBy != undefined) {
+        sortBy.addEventListener('change', function() {
+            let optionValue = sortBy.value;
+            if (optionValue == 'a to z') {
+                productData.sort(function(a, b) {
+                    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+                    if (nameA < nameB) {
+                        return -1;
+                    }
+                    if (nameA > nameB) {
+                        return 1;
+                    }
+                    // names must be equal
+                    return 0;
+                });
+                insertProductCollection() // function call from admin.js
+            } else if (optionValue == 'z to a') {
+                productData.sort(function(a, b) {
+                    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+                    if (nameA < nameB) {
+                        return 1;
+                    }
+                    if (nameA > nameB) {
+                        return -1;
+                    }
+                    // names must be equal
+                    return 0;
+                });
+                insertProductCollection() // function call from admin.js
+            } else if (optionValue == 'min to max') {
+                productData.sort(function(a, b) {
+                    return a.price - b.price;
+                });
+                insertProductCollection() // function call from admin.js
+            } else if (optionValue == 'max to min') {
+                productData.sort(function(a, b) {
+                    return b.price - a.price;
+                });
+                insertProductCollection() // function call from admin.js
+            } else if (optionValue == 'default') {
+                for (i = 0; i < unSort.length; i++) {
+                    productData.splice(i, 1, unSort[i])
                 }
-                if (nameA > nameB) {
-                    return 1;
-                }
-                // names must be equal
-                return 0;
-            });
-            insertProductCollection() // function call from admin.js
-        } else if (optionValue == 'z to a') {
-            productData.sort(function(a, b) {
-                const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-                if (nameA < nameB) {
-                    return 1;
-                }
-                if (nameA > nameB) {
-                    return -1;
-                }
-                // names must be equal
-                return 0;
-            });
-            insertProductCollection() // function call from admin.js
-        } else if (optionValue == 'min to max') {
-            productData.sort(function(a, b) {
-                return a.price - b.price;
-            });
-            insertProductCollection() // function call from admin.js
-        } else if (optionValue == 'max to min') {
-            productData.sort(function(a, b) {
-                return b.price - a.price;
-            });
-            insertProductCollection() // function call from admin.js
-        } else if (optionValue == 'default') {
-            for (i = 0; i < unSort.length; i++) {
-                productData.splice(i, 1, unSort[i])
-            }
-            insertProductCollection() // function call from admin.js
-        };
-    })
+                insertProductCollection() // function call from admin.js
+            };
+        })
+    }
 }
 
 sortProduct()

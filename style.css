@@ -1069,3 +1069,15 @@ section#cart-page .cart-items .cart-item .cart-quantity-item button {
     border: 1px solid var(--second-color);
     cursor: pointer;
 }
+
+section#sort-by-section .container {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+section#sort-by-section .container select {
+    height: 30px;
+}

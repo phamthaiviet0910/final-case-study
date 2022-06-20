@@ -166,6 +166,9 @@
     section#cart-page .cart-total-price .cart-total-price-box {
         top: 50px;
     }
+    section#sort-by-section .container {
+        padding: 0 15px;
+    }
 }
 
 @media(max-width: 768px) {

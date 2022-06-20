@@ -153,7 +153,7 @@ section#header img {
 section#topbar {
     position: sticky;
     top: 0;
-    z-index: 99;
+    z-index: 999;
     background: #fff;
 }
 
@@ -411,7 +411,7 @@ section#topbar .container .topbar-left {
 section#menu {
     position: sticky;
     top: 37px;
-    z-index: 9;
+    z-index: 99;
 }
 
 section#menu .container {

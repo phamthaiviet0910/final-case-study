@@ -8,6 +8,9 @@
     .container {
         max-width: 1200px;
     }
+    section#cart-page .cart-total-price {
+        padding-left: 60px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -160,6 +163,9 @@
     .menu-mobile ul li:last-child {
         border-bottom: none;
     }
+    section#cart-page .cart-total-price .cart-total-price-box {
+        top: 50px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -181,6 +187,10 @@
     section#cart-page .cart-total-price {
         width: 100%;
         padding-left: 0;
+    }
+    section#cart-page .cart-total-price .cart-total-price-box {
+        position: relative;
+        top: 0 !important;
     }
 }
 
